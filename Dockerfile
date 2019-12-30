@@ -34,7 +34,6 @@ COPY rootfs /
 ARG AVAHI
 RUN [ "${AVAHI:-1}" = "1" ] || (echo "Removing Avahi" && rm -rf /etc/services.d/avahi /etc/services.d/dbus)
 
-VOLUME [ "/HomeSeer" ] 
-EXPOSE 80 10200 10300 10401 11000
+VOLUME [ "/HomeSeer" ]
 
 ENTRYPOINT [ "/init" ]
