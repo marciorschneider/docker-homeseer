@@ -32,8 +32,7 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
 COPY rootfs /
 
 ARG AVAHI
-RUN [ "${AVAHI:-1}" = "1" ] || (echo "Removing Avahi" && rm -rf /etc/services.d/avahi /etc/services.d/dbus)
 
-VOLUME [ "/HomeSeer" ]
+RUN [ "${AVAHI:-1}" = "1" ] || (echo "Removing Avahi" && rm -rf /etc/services.d/avahi /etc/services.d/dbus)
 
 ENTRYPOINT [ "/init" ]
